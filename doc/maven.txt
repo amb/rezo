@@ -1,0 +1,3 @@
+mvn dependency:copy-dependencies
+--restart swank-clojure-project
+--swank setup looks for jars in target/dependency

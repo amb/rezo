@@ -1,0 +1,11 @@
+15:03 < _ato> ambient: so I'm no expert on JNI, but I've looked at what SqliteJDBC does 
+              (Clojars currently uses it even) and it manages to bundle linux, win32 and mac 
+              binaries all the same jar
+15:04 < ambient> cool, thanks. i have to take a look how it's done then :)
+15:04 < _ato> the problem is the JVM can't load native libs directly from inside a jar
+15:04 < _ato> so what SqliteJDBC does is checks os.name property
+15:04 < _ato> picks the appropriate lib for the current OS
+15:05 < _ato> and unpacks it into a temporary file using 
+              Class.getResourceAsStream("libsomething.so") and File/createTempFile
+15:05 < _ato> it then calls System/load on that temp file and marks it for deletion on exit
+
