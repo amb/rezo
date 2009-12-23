@@ -1,0 +1,1 @@
+java -Djava.library.path=/home/tommi/code/rezo/lib/ -cp /home/tommi/src/clojure/clojure.jar:/home/tommi/src/clojure-contrib/clojure-contrib.jar:/home/tommi/code/rezo/lib/*:/home/tommi/code/rezo/src/:classes/ clojure.main
